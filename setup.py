@@ -1,16 +1,17 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='',
-    version='',
+    name='tw2.pygmentize',
+    version='0.1',
     description='',
-    author='',
-    author_email='',
-    url='',
+    author='Moritz Schlarb',
+    author_email='moschlar@metalabs.de',
+    url='https://github.com/moschlar/tw2.pygmentize',
     install_requires=[
         "tw2.core",
         ## Add other requirements here
         # "Genshi",
+        "pygments >= 1.6",
         ],
     packages=find_packages(exclude=['ez_setup', 'tests']),
     namespace_packages = ['tw2'],

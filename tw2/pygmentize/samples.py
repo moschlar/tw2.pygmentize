@@ -8,7 +8,22 @@ See http://toscawidgets.org/documentation/WidgetBrowser for more information
 
 import widgets
 
+
 class DemoPygmentize(widgets.Pygmentize):
     # Provide default parameters, value, etc... here
     # default = <some-default-value>
-    pass
+    lexer_name = u'python'
+    formatter_args = dict(
+        linenos='table',
+        lineanchors='line',
+        linespans='line',
+        anchorlinenos=True,
+    )
+    source = u'''
+#!/usr/bin/python
+
+import sys
+
+for line in sys.stdin:
+    print int(line)**2
+'''
