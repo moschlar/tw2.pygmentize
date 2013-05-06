@@ -3,7 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name='tw2.pygmentize',
     version='0.1',
-    description='',
+    description='Syntax Highlighting using Pygments within a ToscaWidgets2 widget',
+    long_description=open('README.rst').read(),
     author='Moritz Schlarb',
     author_email='moschlar@metalabs.de',
     url='https://github.com/moschlar/tw2.pygmentize',
