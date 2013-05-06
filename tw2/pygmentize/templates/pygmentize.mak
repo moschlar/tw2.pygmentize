@@ -1,2 +1,1 @@
-<%namespace name="tw" module="tw2.core.mako_util"/>\
-<div ${tw.attrs(attrs=w.attrs)}>${w.source | n}</div>
+${w.source | n}

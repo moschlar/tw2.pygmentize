@@ -11,7 +11,7 @@ class Pygmentize(twc.Widget):
     # declare static resources here
     resources = []
 
-    name = twc.Param(default=lambda s: s.compound_id or s.id)
+    name = twc.Param(default=property(lambda s: hasattr(s, 'compound_id') and s.compound_id or hasattr(s, 'id') and s.id or ''))
 
     lexer_name = twc.Param()
     lexer_args = twc.Param(default=dict())
