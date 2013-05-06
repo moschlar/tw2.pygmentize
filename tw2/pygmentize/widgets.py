@@ -11,7 +11,7 @@ class Pygmentize(twc.Widget):
     # declare static resources here
     resources = []
 
-    name = twc.Param(default=property(lambda s: s.compound_id or s.id), attribute=True)
+    name = twc.Param(default=lambda s: s.compound_id or s.id)
 
     lexer_name = twc.Param()
     lexer_args = twc.Param(default=dict())
@@ -34,9 +34,10 @@ class Pygmentize(twc.Widget):
         lexer = get_lexer_by_name(self.lexer_name, **self.lexer_args)
 
         formatter_args = dict(self.formatter_args)
-        for k in 'lineanchors', 'linespans':
-            if k in formatter_args:
-                formatter_args[k] = self.name + '_' + formatter_args[k]
+        if self.name:
+            for k in 'lineanchors', 'linespans':
+                if k in formatter_args:
+                    formatter_args[k] = self.name + '_' + formatter_args[k]
         formatter = self.formatter_class(style=self.style, noclasses=self.noclasses,
             **formatter_args)
 
