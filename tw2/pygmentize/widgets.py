@@ -9,8 +9,9 @@ class Pygmentize(twc.Widget):
     template = "tw2.pygmentize.templates.pygmentize"
 
     # declare static resources here
-    resources = [
-    ]
+    resources = []
+
+    name = twc.Param(default=property(lambda s: s.compound_id or s.id), attribute=True)
 
     lexer_name = twc.Param()
     lexer_args = twc.Param(default=dict())
@@ -35,7 +36,7 @@ class Pygmentize(twc.Widget):
         formatter_args = dict(self.formatter_args)
         for k in 'lineanchors', 'linespans':
             if k in formatter_args:
-                formatter_args[k] = (self.compound_id or self.id) + '_' + formatter_args[k]
+                formatter_args[k] = self.name + '_' + formatter_args[k]
         formatter = self.formatter_class(style=self.style, noclasses=self.noclasses,
             **formatter_args)
 
