@@ -11,7 +11,7 @@ setup(
         "tw2.core",
         ## Add other requirements here
         # "Genshi",
-        "pygments >= 1.6",
+        "Pygments >= 1.6",
         ],
     packages=find_packages(exclude=['ez_setup', 'tests']),
     namespace_packages = ['tw2'],

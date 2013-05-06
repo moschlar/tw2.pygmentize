@@ -8,9 +8,6 @@ from pygments.formatters import HtmlFormatter
 class Pygmentize(twc.Widget):
     template = "tw2.pygmentize.templates.pygmentize"
 
-    # declare static resources here
-    resources = []
-
     name = twc.Param(default=property(lambda s: hasattr(s, 'compound_id') and s.compound_id or hasattr(s, 'id') and s.id or ''))
 
     lexer_name = twc.Param()
@@ -22,11 +19,6 @@ class Pygmentize(twc.Widget):
     formatter_args = twc.Param(default=dict())
 
     source = twc.Param()
-
-    @classmethod
-    def post_define(cls):
-        pass
-        # put custom initialisation code here
 
     def prepare(self):
         super(Pygmentize, self).prepare()
