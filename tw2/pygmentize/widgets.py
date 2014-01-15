@@ -33,7 +33,6 @@ class Pygmentize(twc.Widget):
 
     def prepare(self):
         super(Pygmentize, self).prepare()
-        # put code here to run just before the widget is displayed
 
         lexer = None
 
