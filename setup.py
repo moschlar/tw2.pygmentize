@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='tw2.pygmentize',
-    version='0.1',
+    version='0.2',
     description='Syntax Highlighting using Pygments within a ToscaWidgets2 widget',
     long_description=open('README.rst').read(),
     author='Moritz Schlarb',
@@ -28,7 +28,7 @@ setup(
         'toscawidgets.widgets',
     ],
     classifiers = [
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Environment :: Web Environment :: ToscaWidgets',
         'Topic :: Software Development :: Libraries :: Python Modules',

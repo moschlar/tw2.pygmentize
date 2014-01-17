@@ -12,13 +12,14 @@ import widgets
 class DemoPygmentize(widgets.Pygmentize):
     # Provide default parameters, value, etc... here
     # default = <some-default-value>
-    lexer_name = u'python'
     formatter_args = dict(
         linenos='table',
         lineanchors='line',
         linespans='line',
         anchorlinenos=True,
     )
+    lexer_name = 'Python'
+    filename = 'hello.py'
     source = u'''
 #!/usr/bin/python
 
