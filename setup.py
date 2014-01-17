@@ -12,12 +12,21 @@ setup(
         "tw2.core",
         ## Add other requirements here
         # "Genshi",
+        "Mako",
         "Pygments >= 1.6",
         ],
     packages=find_packages(exclude=['ez_setup', 'tests']),
     namespace_packages = ['tw2'],
     zip_safe=False,
     include_package_data=True,
+    tests_require = [
+        'nose',
+        'BeautifulSoup',
+        'FormEncode',
+        'WebTest',
+        'strainer',
+        'sieve',  # tw2.core.testbase
+    ],
     test_suite = 'nose.collector',
     entry_points="""
         [tw2.widgets]
