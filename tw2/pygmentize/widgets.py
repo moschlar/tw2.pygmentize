@@ -21,7 +21,7 @@ class Pygmentize(twc.Widget):
         description='Pygments formatter class')
     style = twc.Param(default=u'default',
         description='Pygments formatter style attribute')
-    noclasses = twc.Variable(default=True,
+    noclasses = twc.Param(default=True,
         description='Pygments formatter noclasses attribute (use style attributes in the HTML tags instead)')
     formatter_args = twc.Param(default=dict(),
         description='Additional arguments for the Pygments formatter')
@@ -42,7 +42,9 @@ class Pygmentize(twc.Widget):
             lexer = get_lexer_for_filename(self.filename, self.source or None, **self.lexer_args)
 
         if self.lexer_name:
-            lexer = find_lexer_class(self.lexer_name, **self.lexer_args)
+            lexer = find_lexer_class(self.lexer_name)
+            if lexer:
+                lexer = lexer(**self.lexer_args)
 
             try:
                 lexer = get_lexer_by_name(self.lexer_name, **self.lexer_args)
