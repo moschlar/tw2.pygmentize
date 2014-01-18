@@ -39,7 +39,10 @@ class Pygmentize(twc.Widget):
         # Try very hard to get any lexer
 
         if self.filename:
-            lexer = get_lexer_for_filename(self.filename, self.source or None, **self.lexer_args)
+            try:
+                lexer = get_lexer_for_filename(self.filename, self.source or None, **self.lexer_args)
+            except ClassNotFound:
+                pass
 
         if self.lexer_name:
             lexer = find_lexer_class(self.lexer_name)
